@@ -32,10 +32,10 @@ public class UserInfoLab {
     public static String generateUsername(String firstName, String lastName) {
         // Fill in this method and return an appropriate username
         String result = "";
-        if(firstName.length() < 3){
+        if(firstName.length() < 4){
             result += firstName;
         }
-        if(lastName.length() < 3){
+        if(lastName.length() < 4){
             result += lastName;
         }
         else{
