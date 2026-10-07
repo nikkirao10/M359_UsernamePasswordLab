@@ -1,8 +1,17 @@
+import java.util.Scanner;
+
 public class UserInfoLab {
     public static void main(String[] args) {
         // Part 1
         // Create a Scanner for keyboard input
+        Scanner scan = new Scanner(System.in);
+
         // Ask the user to enter their first and last name and pass these
+        System.out.print("First name: ");
+        String firstName = scan.nextLine();
+        System.out.print("last name: ");
+        String lastName = scan.nextLine();
+        generateUsername(firstName, lastName);
         // values to the generateUsername method and save the returned result.
 
         // Part 2
@@ -22,7 +31,19 @@ public class UserInfoLab {
 
     public static String generateUsername(String firstName, String lastName) {
         // Fill in this method and return an appropriate username
-        return "";
+        String result = "";
+        if(firstName.length() < 3){
+            result += firstName;
+        }
+        if(lastName.length() < 3){
+            result += lastName;
+        }
+        else{
+            result += firstName.substring(0, 3) + lastName.substring(0,3);
+        }
+
+        return result;
+
     }
     public static boolean validatePassword(String password) {
         // Fill in this method and return true/false if the password is valid
