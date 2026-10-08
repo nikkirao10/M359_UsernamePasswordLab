@@ -12,6 +12,12 @@ public class UserInfoLab {
         System.out.print("last name: ");
         String lastName = scan.nextLine();
         generateUsername(firstName, lastName);
+        System.out.print("Password: ");
+        String password = scan.nextLine();
+        validatePassword(password);
+        System.out.print("Credit card number: ");
+        String creditCardNumber = scan.nextLine();
+        maskCreditCard(creditCardNumber);
         // values to the generateUsername method and save the returned result.
 
         // Part 2
@@ -44,13 +50,38 @@ public class UserInfoLab {
 
         return result;
 
+
+
     }
     public static boolean validatePassword(String password) {
         // Fill in this method and return true/false if the password is valid
+        if(password.length() >= 8) {
+            for (int i = 0; i < password.length(); i++){
+                if(password.charAt(i) >= 65 && password.charAt(i) <= 90){
+                    if(containsDigit(password)){
+                        return true;
+                    } else{
+                        System.out.print("No digits\n");
+                        return false;
+                    }
+                }else{
+                    System.out.print("no uppercase");
+                    return false;
+                }
+            }
+        } else{
+            System.out.print("Not 8 characters");
+            return false;
+        }
         return true;
     }
     public static String maskCreditCard(String creditCardNumber) {
         // Fill in this method and if the credit card is valid, return a masked CC
+        if (allDigits(creditCardNumber)) {
+
+        } else{
+            return "N/A";
+        }
         return "";
     }
 
